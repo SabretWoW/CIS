@@ -5,8 +5,8 @@ ruby "3.1.1"
 
 
 # Kyle added
-gem "typeprof"
-gem "ahoy_matey"
+gem "typeprof"   # some bonus syntax completion and & highlighting.
+gem "ahoy_matey" # basic analytics. easy to use.
 
 
 
