@@ -4,6 +4,7 @@ class ShortLinksController < ApplicationController
   # GET /short_links or /short_links.json
   def index
     @short_links = ShortLink.all
+    @short_link = ShortLink.new
   end
 
   # GET /short_links/1 or /short_links/1.json
