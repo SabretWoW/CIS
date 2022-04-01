@@ -41,7 +41,7 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 # A few things I struggled with/want to enhance:
 
-* I should have named the short_link property of the model "suffix" or something like that and used a method in the model and used a concatenation method to build the full URL on the fly. It's a tad confusing but still works. That would've saved data in the database, but increased the computational requirements. Both options have probably a negligible overall impact to app resources, but with a million shortlinks for example, the latter option (storing only suffix) might have been the better solution.
+* I should have named the short_link property of the model "suffix" or "shortened_url" or something like that and used a method in the model and used a concatenation method to build the full URL on the fly. It's a tad confusing but still works. That would've saved data in the database, but increased the computational requirements. Both options have probably a negligible overall impact to app resources, but with a million shortlinks for example, the latter option (storing only suffix) might have been the better solution.
 
 * I probably could DRY my tests a bit. Usually use ShouldaMatchers for basic validation tests, but since I use before_validate callbacks, it was interfering with my validation specs. I just reverted to basic, clean RSpec to get the job done.
 

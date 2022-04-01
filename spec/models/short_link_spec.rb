@@ -33,7 +33,7 @@ RSpec.describe ShortLink, type: :model do
         expect(valid_http_shortlink.save).to eq(true)
 
         # Test some of the most likely invalid URL inputs. The URI::regexp probably already 
-        # tests these, but I like to add some extra security sometimes.
+        # tests these, but I often like to add some extra security & explicitness.
         invalid_shortlink = ShortLink.new(full_url: "www.CustomInk")
         expect(invalid_shortlink.save).to eq(false)
 
@@ -49,13 +49,46 @@ RSpec.describe ShortLink, type: :model do
     end
 
     describe "short_link" do 
-      xit { expect(short_link).to validate_presence_of(:short_link) }
-      xit { expect(short_link).to validate_uniqueness_of(:short_link) }
-      xit { expect(short_link).to format(:short_link) } # TODO: figure this out
+      it "is present" do
+        fully_valid_short_link = ShortLink.new(full_url: "https://www.CustomInk.com", short_link: "https://ci.com/asdf")
+        expect(fully_valid_short_link.save).to eq(true)
+      end
+
+      it "is unique" do
+        base_shortlink = ShortLink.create!(full_url: "https://www.CustomInk.com/sitemap")
+        another_shortlink = ShortLink.create!(full_url: "https://www.CustomInk.com")
+        expect(base_shortlink.short_link).to_not eq(another_shortlink.short_link)
+      end
     end
   end
 
   ## Callbacks
-  # TODO
-end
+  context "before_validate" do
+    it "downcases the full_url" do
+      valid_shortlink = ShortLink.create!(full_url: "https://www.CustomInk.com/sitemap")
+      expect(valid_shortlink.full_url).to eq("https://www.customink.com/sitemap")
+      expect(valid_shortlink.full_url).to_not eq("https://www.CustomInk.com/sitemap")
+    end
+  end
 
+  # Methods
+  context "generate_short_suffix" do
+    before(:each) do
+      @shortlink = ShortLink.create!(full_url: "https://www.CustomInk.com/sitemap")
+      @parsed_shortlink = URI.parse(@shortlink.short_link)
+    end
+
+    context "short_link result" do
+      it "starts with https://ci.com/" do
+        expect(@shortlink.short_link[0..14]).to eq("https://ci.com/")
+      end
+    end
+
+    context "short_link suffix" do
+      it "is 10-characters" do
+        # check that the suffix has 10 characters. be sure to strip off initial /
+        expect(@parsed_shortlink.path[1..].size).to eq(10)
+      end
+    end
+  end
+end
