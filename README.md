@@ -41,14 +41,18 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 # A few things I struggled with/want to enhance:
 
+* I should have named the short_link property of the model "suffix" or something like that and used a method in the model and used a concatenation method to build the full URL on the fly. It's a tad confusing but still works. That would've saved data in the database, but increased the computational requirements. Both options have probably a negligible overall impact to app resources, but with a million shortlinks for example, the latter option (storing only suffix) might have been the better solution.
+
+* I probably could DRY my tests a bit. Usually use ShouldaMatchers for basic validation tests, but since I use before_validate callbacks, it was interfering with my validation specs. I just reverted to basic, clean RSpec to get the job done.
+
 * I tried for over an hour to implement a "copy to clipboard" function in the popover, but I couldn't get the p tag to recognize my onclick() function. It was just a bonus I wanted to push myself to try. I moved on to hosting the application.
 
-* I implemented Ahoy! for analytics at the beginning because I thought I would use it. I ended up not, but I like having multiple sources of analytics in production applications.
+* I implemented Ahoy! for analytics at the beginning because I thought I would use it. I ended up not, but I like having multiple sources of analytics in production applications. Google Analytics is usually one of the first things I like to wire up. #ILoveData
 
 * The UI could definitely use some work. I enjoy front-end development and is an aspect I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. Better flashes, tidied up list of shortlinks in a sortable+filterable data table, and some pixel-peeping on the positioning of some UI elements.
 
-* I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20 per page.
+* I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20 per page. I'd probably use Memcached/Redis to cache the first few pages and bust the cache each time a shortlink was created just to speed the app along a bit.
 
-* "Eliminate" the possibilty of foul and/or offensive words that may appear due to the pure random implementation of the URL suffix generation.
+* Attempt to eliminate the possibilty of foul and/or offensive words that may appear due to the pure random implementation of the URL suffix generation.
 
 * Ability to add a flag at the end of the URL (i.e. a + like bit.ly does) to allow users to preview the full URL target before visiting a shortlink. Extending that further, a "flag" for illegal websites to allow users to report.
