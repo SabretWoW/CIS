@@ -3,11 +3,13 @@
 <h1>Short links</h1>
 
 <div id="short_links">
-  <% @short_links.each do |short_link| %>
-    <%= render short_link %>
-    <p>
-      <%= link_to "Show this short link", short_link %>
-    </p>
+  <% unless @short_links.nil? %>
+    <% @short_links.each do |short_link| %>
+      <%= render short_link %>
+      <p>
+        <%= link_to "Show this short link", short_link %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 

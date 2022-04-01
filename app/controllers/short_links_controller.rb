@@ -26,10 +26,19 @@ class ShortLinksController < ApplicationController
 
     respond_to do |format|
       if @short_link.save
-        format.html { redirect_to short_link_url(@short_link), notice: "Short link was successfully created." }
-        format.json { render :show, status: :created, location: @short_link }
+        # Build a two-element hash with full and shortened URL of the user's last shortening.
+        # Don't store the full @short_link to reduce the amount of data passed in session.
+        # In this app, the amount of extra data is negligible, but in a prod app with a million users,
+        # it could add significant overhead. Seems like good practice.
+        users_last_short_link = { full_url: @short_link["full_url"], short_link: @short_link.short_link }
+
+        # Store the users_last_short_link hash in the :shortened_link key to use back in the the index 
+        session[:shortened_link] = users_last_short_link
+
+        # Redirect back to the root_path (short_links#index)
+        format.html { redirect_to root_path, notice: "Short link was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
         format.json { render json: @short_link.errors, status: :unprocessable_entity }
       end
     end
