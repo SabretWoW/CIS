@@ -1,15 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Short links</h1>
+<div class="px-4 py-5 my-5">
+  <h1 class="display-5 fw-bold">All Shortlinks</h1>
 
-<div id="short_links">
-  <% unless @short_links.nil? %>
-    <% @short_links.each do |short_link| %>
-      <%= render short_link %>
+  <div id="short_links">
+    <% unless @short_links.nil? %>
+      <% @short_links.each do |short_link| %>
+        <%= render short_link %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if @short_links.nil? %>
-    <p>Nobody has created any shortlinks yet. Want to be the first?</p>
-  <% end %>
+    <% if @short_links.nil? %>
+      <p>Nobody has created any shortlinks yet. Want to be the first?</p>
+    <% end %>
+  </div>
 </div>
