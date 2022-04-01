@@ -11,15 +11,6 @@ class ShortLinksController < ApplicationController
   def show
   end
 
-  # GET /short_links/new
-  # def new
-  #   @short_link = ShortLink.new
-  # end
-
-  # GET /short_links/1/edit
-  # def edit
-  # end
-
   # POST /short_links or /short_links.json
   def create
     @short_link = ShortLink.new(short_link_params)
@@ -55,12 +46,10 @@ class ShortLinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_short_link
       @short_link = ShortLink.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def short_link_params
       params.require(:short_link).permit(:full_url, :short_link)
     end
