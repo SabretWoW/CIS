@@ -1,6 +1,8 @@
 class ShortLink < ApplicationRecord
   ## Callbacks
-  before_validation { full_url.downcase! }
+  before_validation do
+    full_url.downcase!
+  end
 
   ## Validations
   validates :full_url,  presence: true, 
