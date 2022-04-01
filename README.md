@@ -13,13 +13,13 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 # Environment/Stack Details
 
-* Ruby 3.1.1
+* [Ruby 3.1.1](https://www.ruby-lang.org/en/news/2022/02/18/ruby-3-1-1-released)
 
-* Ruby on Rails 7.0.2.3
+* [Ruby on Rails 7.0.2.3](https://rubyonrails.org/2022/3/8/Rails-7-0-2-3-6-1-4-7-6-0-4-7-and-5-2-6-3-have-been-released)
 
-* Bootstrap 5
+* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
-* PostgreSQL
+* [PostgreSQL](https://www.postgresql.org/)
 
 * [Hosted on Heroku](https://ci-shorten.herokuapp.com/)
 
@@ -35,7 +35,7 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 * How to use [database indexes](https://github.com/kyletcarlson/CIS/blob/main/db/migrate/20220401025409_add_uniqueness_and_required_to_short_links.rb) to enforce uniqueness constraints, and how to use HTML5 form validation
 
-* More about [how to use Markdown](https://www.markdownguide.org/basic-syntax)
+* More about [how to use Markdown](https://www.markdownguide.org/basic-syntax). Perhaps I went a bit too far with the links, but I was on a roll and didn't want to stop!
 
 
 
@@ -45,6 +45,6 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 * I implemented Ahoy! for analytics at the beginning because I thought I would use it. I ended up not, but I like having multiple sources of analytics in production applications.
 
-* The UI could definitely use some work. I enjoy front-end development and is an aspect I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. 
+* The UI could definitely use some work. I enjoy front-end development and is an aspect I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. Better flashes, tidied up list of shortlinks in a sortable+filterable data table, and some pixel-peeping on the positioning of some UI elements.
 
 * I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20 per page.
