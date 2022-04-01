@@ -1,7 +1,7 @@
 class ShortLink < ApplicationRecord
   ## Callbacks
   before_validation do
-    full_url.downcase!
+    self.full_url.downcase!
   end
 
   ## Validations
