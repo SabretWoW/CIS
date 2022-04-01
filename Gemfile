@@ -70,7 +70,6 @@ group :development, :test do
   gem "database_cleaner"
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 group :development do

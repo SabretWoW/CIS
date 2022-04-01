@@ -26,7 +26,6 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 * Hosted in a public GitHub repo: [https://github.com/kyletcarlson/CIS](https://github.com/kyletcarlson/CIS)
 
 
-
 # A few things I learned:
 
 * How to [initialize](https://github.com/kyletcarlson/CIS/blob/main/app/views/layouts/application.html.erb#L32), [enable HTML](https://github.com/kyletcarlson/CIS/blob/main/app/views/short_links/_users_last_short_link.html.erb#L9) inside of, and [work with](https://github.com/kyletcarlson/CIS/blob/main/app/views/short_links/_short_link_popover.html.erb#L1) Bootstrap 5 popovers

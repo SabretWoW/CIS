@@ -2,11 +2,15 @@ require 'rails_helper'
 
 RSpec.describe "/short_links", type: :request do
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      full_url: "https://www.customink.com"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      full_url: "customink"
+    }
   }
 
   describe "GET /index" do
@@ -25,9 +29,9 @@ RSpec.describe "/short_links", type: :request do
         }.to change(ShortLink, :count).by(1)
       end
 
-      it "redirects to the created short_link" do
+      it "redirects to the root_path" do
         post short_links_url, params: { short_link: valid_attributes }
-        expect(response).to redirect_to(short_link_url(ShortLink.last))
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -36,11 +40,6 @@ RSpec.describe "/short_links", type: :request do
         expect {
           post short_links_url, params: { short_link: invalid_attributes }
         }.to change(ShortLink, :count).by(0)
-      end
-
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post short_links_url, params: { short_link: invalid_attributes }
-        expect(response).to be_successful
       end
     end
   end
