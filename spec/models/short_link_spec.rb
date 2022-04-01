@@ -78,7 +78,7 @@ RSpec.describe ShortLink, type: :model do
       @parsed_shortlink = URI.parse(@shortlink.short_link)
     end
 
-    context "short_link result" do
+    context "complete short_link" do
       it "starts with https://ci.com/" do
         expect(@shortlink.short_link[0..14]).to eq("https://ci.com/")
       end
@@ -88,6 +88,11 @@ RSpec.describe ShortLink, type: :model do
       it "is 10-characters" do
         # check that the suffix has 10 characters. be sure to strip off initial /
         expect(@parsed_shortlink.path[1..].size).to eq(10)
+      end
+
+      it "is only alpha characters" do
+        suffix = @parsed_shortlink.path[1..]
+        expect(suffix.match?(/\A[a-zA-Z'-]*\z/)).to eq(true)
       end
     end
   end
