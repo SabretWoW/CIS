@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_31_222215) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_01_025409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,10 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_222215) do
   end
 
   create_table "short_links", force: :cascade do |t|
-    t.string "full_url"
-    t.string "short_link"
+    t.string "full_url", null: false
+    t.string "short_link", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["full_url"], name: "index_short_links_on_full_url", unique: true
+    t.index ["short_link"], name: "index_short_links_on_short_link", unique: true
   end
 
 end

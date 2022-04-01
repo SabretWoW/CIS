@@ -7,7 +7,7 @@ class ShortLink < ApplicationRecord
   ## Validations
   validates :full_url,  presence: true, 
                         format: URI::regexp(%w[http https])
-                        uniqueness: true  # since we downcase it before validations are run. 
+                        uniqueness: true
 
   # case doesn't matter because uppercase is totally different than lowercase
   # i.e. ci.com/aBc != ci.com/abc
