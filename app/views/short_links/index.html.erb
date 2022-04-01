@@ -6,11 +6,10 @@
   <% unless @short_links.nil? %>
     <% @short_links.each do |short_link| %>
       <%= render short_link %>
-      <p>
-        <%= link_to "Show this short link", short_link %>
-      </p>
     <% end %>
   <% end %>
-</div>
 
-<%= link_to "New short link", new_short_link_path %>
+  <% if @short_links.nil? %>
+    <p>Nobody has created any shortlinks yet. Want to be the first?</p>
+  <% end %>
+</div>

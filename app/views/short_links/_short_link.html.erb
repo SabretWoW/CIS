@@ -1,7 +1,7 @@
 <div id="<%= dom_id short_link %>">
   <p>
     <strong>Full url:</strong>
-    <%= short_link.full_url %>
+    <%= link_to short_link.full_url, short_link.full_url, target: "_blank" %>
   </p>
 
   <p>
