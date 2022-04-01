@@ -41,10 +41,10 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 
 # A few things I struggled with/want to enhance:
 
-* I tried for over an hour to implement a "copy to clipboard" function in the popover, but I couldn't get the <p> tag to recognize my onclick() function. 
+* I tried for over an hour to implement a "copy to clipboard" function in the popover, but I couldn't get the p tag to recognize my onclick() function. It was just a bonus I wanted to push myself to try. I moved on to hosting the application.
 
 * I implemented Ahoy! for analytics at the beginning because I thought I would use it. I ended up not, but I like having multiple sources of analytics in production applications.
 
-* The UI could definitely use some work. I enjoy front-end development and is an element I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. 
+* The UI could definitely use some work. I enjoy front-end development and is an aspect I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. 
 
-* I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20
+* I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20 per page.
