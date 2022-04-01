@@ -1,5 +1,14 @@
 <div class="alert alert-info text-center" role="alert">
   <h3>Your last created shortlink:</h3>
-  <p><%= session[:shortened_link]["short_link"] %><p>
-  <p>Click on it for a surprise</p>
+  
+  <button type="button" class="btn btn-lg btn-danger" 
+          data-bs-toggle="popover" 
+          title="Full URL" 
+          data-bs-content="<%= render 'short_links/short_link_popover' %>" 
+          data-bs-html="true">
+          
+          <%= session[:shortened_link]["short_link"] %>
+  </button>
+
+  <p>Click it for a surprise</p>
 </div>
