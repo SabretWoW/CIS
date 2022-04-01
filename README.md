@@ -48,3 +48,7 @@ This is the URL shortener for the Custom Ink coding exercise. The requirements a
 * The UI could definitely use some work. I enjoy front-end development and is an aspect I'd like to improve upon, but it's definitely not a strong suit. Bootstrap 5 is my go to UI toolkit, and I like developing for mobile first. Better flashes, tidied up list of shortlinks in a sortable+filterable data table, and some pixel-peeping on the positioning of some UI elements.
 
 * I've used Kaminari in other apps for pagination. This app probably won't need it given the number of users who will be using it, but in a production app, I'd limit the number of links displayed at the bottom to maybe 10-20 per page.
+
+* "Eliminate" the possibilty of foul and/or offensive words that may appear due to the pure random implementation of the URL suffix generation.
+
+* Ability to add a flag at the end of the URL (i.e. a + like bit.ly does) to allow users to preview the full URL target before visiting a shortlink. Extending that further, a "flag" for illegal websites to allow users to report.
