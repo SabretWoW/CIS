@@ -1,5 +1,5 @@
 class ShortLinksController < ApplicationController
-  before_action :set_short_link, only: %i[ show edit update destroy ]
+  before_action :set_short_link, only: %i[ show destroy ]
 
   # GET /short_links or /short_links.json
   def index
@@ -12,13 +12,13 @@ class ShortLinksController < ApplicationController
   end
 
   # GET /short_links/new
-  def new
-    @short_link = ShortLink.new
-  end
+  # def new
+  #   @short_link = ShortLink.new
+  # end
 
   # GET /short_links/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /short_links or /short_links.json
   def create
@@ -30,19 +30,6 @@ class ShortLinksController < ApplicationController
         format.json { render :show, status: :created, location: @short_link }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @short_link.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /short_links/1 or /short_links/1.json
-  def update
-    respond_to do |format|
-      if @short_link.update(short_link_params)
-        format.html { redirect_to short_link_url(@short_link), notice: "Short link was successfully updated." }
-        format.json { render :show, status: :ok, location: @short_link }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @short_link.errors, status: :unprocessable_entity }
       end
     end

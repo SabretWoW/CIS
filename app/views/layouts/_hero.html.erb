@@ -7,6 +7,8 @@
           <%= f.input :full_url,  label: "Try it now:", 
                                   error: 'Please enter an actual URL.', 
                                   placeholder: "i.e.: https://www.customink.com/products", 
+                                  required: true,
+                                  as: :url,
                                   input_html: { id: 'urlToShorten', class: 'form-control form-control-lg mb-3' } %>
           <%= button_tag type: 'submit', class: "btn btn-primary btn-lg" do %>
             <i class='bi bi-link-45deg'></i>
